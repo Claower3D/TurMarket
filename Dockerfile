@@ -1,6 +1,8 @@
-FROM node:18-alpine as build
+FROM node:20 as build
 
 WORKDIR /app
+
+ENV NODE_OPTIONS="--max-old-space-size=4096"
 
 # Copy package files
 COPY package*.json ./
